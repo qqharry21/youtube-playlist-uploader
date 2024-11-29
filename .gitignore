@@ -20,3 +20,6 @@ Thumbs.db
 
 # data files
 data/
+
+# test files
+.coverage

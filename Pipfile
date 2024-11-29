@@ -36,6 +36,9 @@ chardet = "*"
 pyyaml = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-mock = "*"  # For mocking in tests
+pytest-cov = "*"
 
 [requires]
 python_version = "3.12"

@@ -100,6 +100,17 @@ echo_info "Installing project dependencies with pipenv..."
 
 pipenv install
 
+# =====================================================================
+# Additional Step: Install Development Dependencies (if separate)
+# =====================================================================
+
+# This step is optional if you included dev-packages in the previous pipenv install
+echo_info "Installing development dependencies with pipenv..."
+
+pipenv install --dev
+
+echo_success "Development dependencies installed successfully."
+
 echo_success "Project dependencies installed successfully."
 
 # =====================================================================

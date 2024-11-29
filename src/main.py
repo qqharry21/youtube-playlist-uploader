@@ -73,24 +73,7 @@ def parse_playlist_csv(file_path):
         sys.exit(1)
 
 
-def main():
-    logger.info("Starting YouTube Playlist Uploader.")
-
-    youtube = authenticate_youtube()
-    existing_playlists = get_existing_playlists(youtube)
-    logger.info(f"Retrieved {len(existing_playlists)} existing playlists from YouTube.")
-
-    playlist_file = config.get("playlist_file", os.path.join("data", "playlist.csv"))
-    playlists = parse_playlist_csv(playlist_file)
-    logger.info(f"Found {len(playlists)} unique playlists in the CSV.")
-
-    for playlist_name, songs in playlists.items():
-        process_playlist(youtube, playlist_name, songs, existing_playlists)
-
-    print("\nAll playlists have been processed and uploaded.")
-
-
-def process_playlist(youtube, playlist_name, songs, existing_playlists):
+def process_playlists(youtube, playlist_name, songs, existing_playlists):
     logger.info(f"\nProcessing Playlist: '{playlist_name}'")
     playlist_id = get_or_create_playlist(youtube, playlist_name, existing_playlists)
     if not playlist_id:
@@ -140,6 +123,23 @@ def add_songs_to_playlist(youtube, songs, playlist_id, existing_videos):
                 time.sleep(1)
         else:
             logger.warning(f"        - No video found for '{song}'. Skipping.")
+
+
+def main():
+    logger.info("Starting YouTube Playlist Uploader.")
+
+    youtube = authenticate_youtube()
+    existing_playlists = get_existing_playlists(youtube)
+    logger.info(f"Retrieved {len(existing_playlists)} existing playlists from YouTube.")
+
+    playlist_file = config.get("playlist_file", os.path.join("data", "playlist.csv"))
+    playlists = parse_playlist_csv(playlist_file)
+    logger.info(f"Found {len(playlists)} unique playlists in the CSV.")
+
+    for playlist_name, songs in playlists.items():
+        process_playlists(youtube, playlist_name, songs, existing_playlists)
+
+    print("\nAll playlists have been processed and uploaded.")
 
 
 if __name__ == "__main__":
