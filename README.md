@@ -161,4 +161,4 @@ your_project/
 
 ## License
 
-[MIT]()
+[MIT](https://github.com/qqharry21/youtube-playlist-uploader/tree/main?tab=MIT-1-ov-file)
