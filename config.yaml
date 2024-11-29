@@ -1,0 +1,18 @@
+credentials_path: 'credentials/credentials.json'
+playlist_file: 'data/playlist.csv'
+log_file: 'upload_playlist.log'
+privacy_status: 'private' # Options: 'public', 'private', 'unlisted'
+video_category_id: '10' # Category ID for Music
+
+logging:
+  level: 'INFO' # Options: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  datefmt: '%Y-%m-%d %H:%M:%S'
+  handlers:
+    console:
+      level: 'INFO'
+    file:
+      level: 'INFO'
+      filename: 'upload_playlist.log'
+      mode: 'a' # Append mode
+      encoding: 'utf-8'
