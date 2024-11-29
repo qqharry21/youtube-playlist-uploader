@@ -10,10 +10,11 @@ A Python script to upload multiple playlists from a CSV file to YouTube Music. I
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
+    - [Running the Script](#running-the-script)
+    - [Step-by-Step Guide](#step-by-step-guide)
   - [Usage](#usage)
   - [Project Structure](#project-structure)
   - [Troubleshooting](#troubleshooting)
-  - [Additional Notes](#additional-notes)
   - [License](#license)
 
 ## Prerequisites
@@ -24,20 +25,32 @@ A Python script to upload multiple playlists from a CSV file to YouTube Music. I
 
 ## Setup
 
-1. **Clone the Repository:**
+**Clone the Repository:**
 
-   ```bash
-   git clone https://github.com/yourusername/youtube-playlist-uploader.git
-   cd youtube-playlist-uploader
-   ```
+```bash
+git clone https://github.com/yourusername/youtube-playlist-uploader.git
+cd youtube-playlist-uploader
+```
 
-2. **Install pipenv (If Not Already Installed):**
+After cloning the repository, you can set up the project using the following methods:
+
+### Running the Script
+
+Run the following commands to set up the project:
+
+```bash
+./setup.sh
+```
+
+### Step-by-Step Guide
+
+1. **Install pipenv (If Not Already Installed):**
 
    ```bash
    pip install --user pipenv
    ```
 
-3. **Install Dependencies:**
+2. **Install Dependencies:**
 
    ```bash
    pipenv install
@@ -49,7 +62,7 @@ A Python script to upload multiple playlists from a CSV file to YouTube Music. I
    pipenv install --dev
    ```
 
-4. **Configure Google API Credentials:**
+3. **Configure Google API Credentials:**
 
    Follow the YouTube Data API Setup Guide to obtain credentials.json.
    Place `credentials.json` inside the `credentials/` directory.
@@ -145,28 +158,6 @@ your_project/
   - Run `pipenv install` to regenerate the lock file.
   - Update the dependencies using `pipenv update`.
   - Check for specific versions in the `Pipfile` are compatible.
-
-## Additional Notes
-
-1. Automate Script Execution with Makefile or Shell Scripts
-
-   You can also run automate script execution using the following command:
-
-   ```bash
-   make run
-   ```
-
-2. Locking Dependencies
-
-   `pipenv` automatically generates a `Pipfile.lock` to ensure consistent environments. Always commit `Pipfile.lock` to version control for reproducibility.
-
-3. Updating Dependencies
-
-   Regularly update your dependencies to incorporate bug fixes and security patches.
-
-   ```bash
-   pipenv update
-   ```
 
 ## License
 
